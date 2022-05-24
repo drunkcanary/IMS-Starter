@@ -2,36 +2,36 @@ package com.qa.ims.persistence.domain;
 
 public class Orders {
 
-int id;
-int customerID;
-int itemID;
-public Orders(int customerID, int itemID) {
+Long id;
+Long customerID;
+Long itemID;
+public Orders(Long customerID, Long itemID) {
 	super();
 	this.customerID = customerID;
 	this.itemID = itemID;
 }
-public Orders(int id, int customerID, int itemID) {
+public Orders(Long id, Long customerID, Long itemID) {
 	super();
 	this.id = id;
 	this.customerID = customerID;
 	this.itemID = itemID;
 }
-public int getId() {
+public Long getId() {
 	return id;
 }
-public void setId(int id) {
+public void setId(Long id) {
 	this.id = id;
 }
-public int getCustomerID() {
+public Long getCustomerID() {
 	return customerID;
 }
-public void setCustomerID(int customerID) {
+public void setCustomerID(Long customerID) {
 	this.customerID = customerID;
 }
-public int getItemID() {
+public Long getItemID() {
 	return itemID;
 }
-public void setItemID(int itemID) {
+public void setItemID(Long itemID) {
 	this.itemID = itemID;
 }
 @Override
