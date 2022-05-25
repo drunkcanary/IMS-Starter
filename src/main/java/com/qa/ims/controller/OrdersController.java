@@ -65,5 +65,11 @@ public class OrdersController implements CrudController<Orders> {
 		Long id = utils.getLong();
 		return ordersDAO.delete(id);
 	}
+	
+	public Double GetOrderValue() {
+		LOGGER.info("Please enter the primary id of the item you want the price for");
+		Long id=utils.getLong();
+		return ordersDAO.calculateItemPrice(id);
 
+}
 }

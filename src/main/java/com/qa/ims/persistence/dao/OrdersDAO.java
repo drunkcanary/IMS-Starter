@@ -67,7 +67,7 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM Orders Orders BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM Orders ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -83,8 +83,7 @@ public class OrdersDAO implements Dao<Orders> {
 	@Override
 	public Orders create(Orders Orders) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO Orders(customerID, ItemID) VALUES (?, ?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO Orders(customerID, ItemID) VALUES (?, ?)");) {
 			statement.setLong(1, Orders.getCustomerID());
 			statement.setLong(2, Orders.getItemID());
 			statement.executeUpdate();
@@ -137,6 +136,17 @@ public class OrdersDAO implements Dao<Orders> {
 		return new Orders(id, customerID, itemID);
 	}
 
+	public Double calculateItemPrice(Long id) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+		PreparedStatement statement = connection.prepareStatement("SELECT value FROM items WHERE id = " +id);){
+		ResultSet resultSet=statement.executeQuery();
+				Double value=resultSet.getDouble("value");
+				return value;
+	}catch(Exception e) {
+		LOGGER.debug(e);
+		LOGGER.error(e.getMessage());
+	}
+		return 0.0;}
 	
 	
 	
