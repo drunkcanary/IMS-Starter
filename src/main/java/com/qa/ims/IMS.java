@@ -1,6 +1,7 @@
 package com.qa.ims;
 
 import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.controller.Action;
@@ -65,6 +66,7 @@ public class IMS {
 				break;
 			case ORDER:
 				active=this.orders;
+				break;
 			case STOP:
 				return;
 			default:
@@ -89,7 +91,7 @@ public class IMS {
 		case CREATE:
 			crudController.create();
 			break;
-		case READ:
+		case READALL:
 			crudController.readAll();
 			break;
 		case UPDATE:
@@ -97,6 +99,9 @@ public class IMS {
 			break;
 		case DELETE:
 			crudController.delete();
+			break;
+		case READBYID:
+			crudController.readbyID();
 			break;
 		case RETURN:
 			break;

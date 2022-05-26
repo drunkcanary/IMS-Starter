@@ -69,8 +69,7 @@ public class CustomerDAO implements Dao<Customer> {
 	@Override
 	public Customer create(Customer customer) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO customers(first_name, surname) VALUES (?, ?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO customers(first_name, surname) VALUES (?, ?)");) {
 			statement.setString(1, customer.getFirstName());
 			statement.setString(2, customer.getSurname());
 			statement.executeUpdate();
@@ -85,17 +84,18 @@ public class CustomerDAO implements Dao<Customer> {
 	@Override
 	public Customer read(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE id = ?;");) {
 			statement.setLong(1, id);
-			try (ResultSet resultSet = statement.executeQuery();) {
+			try (ResultSet resultSet = statement.executeQuery()) {
 				resultSet.next();
 				return modelFromResultSet(resultSet);
 			}
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
+			return null;
 		}
-		return null;
+		
 	}
 
 	/**

@@ -136,17 +136,16 @@ public class OrdersDAO implements Dao<Orders> {
 		return new Orders(id, customerID, itemID);
 	}
 
-	public Double calculateItemPrice(Long id) {
+	public Orders calculateItemPrice(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 		PreparedStatement statement = connection.prepareStatement("SELECT value FROM items WHERE id = " +id);){
 		ResultSet resultSet=statement.executeQuery();
-				Double value=resultSet.getDouble("value");
-				return value;
+				return modelFromResultSet(resultSet);
 	}catch(Exception e) {
 		LOGGER.debug(e);
 		LOGGER.error(e.getMessage());
 	}
-		return 0.0;}
+		return null;}
 	
 	
 	

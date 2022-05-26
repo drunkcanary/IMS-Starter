@@ -2,6 +2,7 @@ package com.qa.ims.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,15 @@ public class CustomerDAOTest {
 
 	@Test
 	public void testDelete() {
-		assertEquals(1, DAO.delete(1));
+		assertEquals(1, DAO.delete(1));}
+	
+	@Test
+	public void readIDTest() {
+		Long id=1l;
+		Customer expected=new Customer(1l,"jordan","harrison");
+		//DAO.create(expected);
+		assertEquals( expected,DAO.read(id));
 	}
+	
+	
 }

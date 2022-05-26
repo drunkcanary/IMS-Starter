@@ -15,5 +15,7 @@ public interface CrudController<T> {
 	T update();
 
 	int delete();
+	
+	T readbyID();
 
 }

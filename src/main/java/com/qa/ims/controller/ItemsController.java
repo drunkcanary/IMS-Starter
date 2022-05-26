@@ -1,13 +1,14 @@
 package com.qa.ims.controller;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.ItemsDAO;
+
+import com.qa.ims.persistence.dao.OrdersDAO;
 import com.qa.ims.persistence.domain.Items;
-import com.qa.ims.persistence.domain.Items;
+
 import com.qa.ims.utils.Utils;
 
 public class ItemsController implements CrudController<Items>{
@@ -63,6 +64,16 @@ public class ItemsController implements CrudController<Items>{
 		LOGGER.info("Please enter the id of the Items you would like to delete");
 		Long id = utils.getLong();
 		return itemsDAO.delete(id);
+	}
+
+	@Override
+	public Items readbyID() {
+		LOGGER.info("Please enter the id of your Order");
+		Long id=utils.getLong();
+		ItemsDAO itemsDAO=new ItemsDAO();
+		LOGGER.info(itemsDAO.read(id));
+		return itemsDAO.read(id);
+		
 	}
 
 }

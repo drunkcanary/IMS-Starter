@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.CustomerDAO;
+import com.qa.ims.persistence.dao.OrdersDAO;
 import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.utils.Utils;
 
@@ -78,6 +79,14 @@ public class CustomerController implements CrudController<Customer> {
 		LOGGER.info("Please enter the id of the customer you would like to delete");
 		Long id = utils.getLong();
 		return customerDAO.delete(id);
+	}
+
+	@Override
+	public Customer readbyID() {
+		LOGGER.info("Please enter the id of your Customer");
+		Long id=utils.getLong();
+		CustomerDAO customerDAO=new CustomerDAO();
+		return customerDAO.read(id);
 	}
 
 }
