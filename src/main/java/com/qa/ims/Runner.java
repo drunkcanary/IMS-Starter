@@ -4,6 +4,9 @@ import org.apache.logging.log4j.LogManager;
 
 import org.apache.logging.log4j.Logger;
 
+import com.qa.ims.persistence.dao.OrdersDAO;
+import com.qa.ims.utils.Utils;
+
 
 
 public class Runner {
@@ -14,6 +17,7 @@ public class Runner {
 		IMS ims = new IMS();
 		ims.imsSystem();
 		LOGGER.info("SO LONG!");
+		
 		
 		
 	}

@@ -20,6 +20,7 @@ public class OrdersDAO implements Dao<Orders> {
 	
 	public static final Logger LOGGER = LogManager.getLogger();
 	public String query1="SELECT * FROM Orders;";
+	
 
 	@Override
 	public List<Orders> readAll() {
@@ -138,7 +139,8 @@ public class OrdersDAO implements Dao<Orders> {
 
 	public Orders calculateItemPrice(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-		PreparedStatement statement = connection.prepareStatement("SELECT value FROM items WHERE id = " +id);){
+				PreparedStatement statement = connection.prepareStatement("SELECT value FROM items WHERE id = ?;");){
+			statement.setLong(1, id);
 		ResultSet resultSet=statement.executeQuery();
 				return modelFromResultSet(resultSet);
 	}catch(Exception e) {
