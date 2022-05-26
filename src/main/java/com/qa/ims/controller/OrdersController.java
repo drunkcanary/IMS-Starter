@@ -83,7 +83,7 @@ public class OrdersController implements CrudController<Orders> {
 			LOGGER.info("Please enter the primary id of the item you want the price for");
 			Long id2=utils.getLong();
 			LOGGER.info(ordersDAO.calculateItemPrice(id2));
-			return ordersDAO.calculateItemPrice(id2);
+		return ordersDAO.read(id);
 		}
 		else {
 			return null;

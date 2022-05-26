@@ -1,8 +1,10 @@
 package com.qa.ims.persistence.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.RowId;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -13,7 +15,6 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.persistence.domain.Items;
-import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.DBUtils;
 
 public class OrdersDAO implements Dao<Orders> {
@@ -137,12 +138,17 @@ public class OrdersDAO implements Dao<Orders> {
 		return new Orders(id, customerID, itemID);
 	}
 
-	public Orders calculateItemPrice(Long id) {
+	public Double calculateItemPrice(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection.prepareStatement("SELECT value FROM items WHERE id = ?;");){
 			statement.setLong(1, id);
 		ResultSet resultSet=statement.executeQuery();
-				return modelFromResultSet(resultSet);
+		resultSet.next();
+		Double price=resultSet.getDouble(1);
+		return price;
+		
+		
+		
 	}catch(Exception e) {
 		LOGGER.debug(e);
 		LOGGER.error(e.getMessage());
