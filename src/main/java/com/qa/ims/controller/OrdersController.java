@@ -64,10 +64,7 @@ public class OrdersController implements CrudController<Orders> {
 		return ordersDAO.delete(id);
 	}
 	
-	//public Double GetOrderValue() {
-		//LOGGER.info("Please enter the primary id of the item you want the price for");
-		//Long id=utils.getLong();
-		//return ordersDAO.calculateItemPrice(id);
+	
 
 
 
@@ -77,7 +74,7 @@ public class OrdersController implements CrudController<Orders> {
 		Long id=utils.getLong();
 		OrdersDAO ordersDAO=new OrdersDAO();
 		LOGGER.info(ordersDAO.read(id));
-		LOGGER.info("Would you like to know the value of your Order");
+		LOGGER.info("Would you like to know the value of your Order");//This is for those that want to find out the value of the items in their order through foreign keys
 		String answer=utils.getString();
 		if(answer.equals("yes")) {
 			LOGGER.info("Please enter the primary id of the item you want the price for");
