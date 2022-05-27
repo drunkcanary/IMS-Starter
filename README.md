@@ -1,7 +1,7 @@
 Coverage: 34%
 # Project Title
 
-One Paragraph of project description goes here
+This project consists of multiple tables in a database that ultimately link to a JAR file that allows the user to update, create, delete and read any entries in the aforementioned tables
 
 ## Getting Started
 
@@ -9,11 +9,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You need preferrably either something that runs SQL through CLI(MY_SQL) or through a GUI(POPSQL)
+You need Eclipse or another Java IDE installed
+In Java you need the JUnit dependencies installed
 
 ### Installing
 
@@ -21,48 +19,22 @@ A step by step series of examples that tell you how to get a development env run
 
 Say what the step will be
 
-```
-Give the example
-```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
-
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+The tests are all located in src/test/java. The tests are divided up into their relevant fields, with controllers being grouped together using Mockito(because they rely on code outside their methods), and DAOs being grouped elsewhere.
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
+Unit tests are for testing individual methods that YOU have created. They tend to not have any external dependencies and are mainly of your own making. Testing these are vital as they consist the foundation of your codebase.
+You run Unit tests for through Junit(4 or 5). Import JUnit, use AssertEquals to compare the expectation of a method you're testing and the outcome. If they're the same, the lights will be green, if not they will be red, and further testing will need to be done.
 ### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+Integration tests are basically testing the system as a whole. They are designed to ensure compatibility between your code and libraries, and others. It's unit testing on a wider scale.
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+
 
 ## Built With
 

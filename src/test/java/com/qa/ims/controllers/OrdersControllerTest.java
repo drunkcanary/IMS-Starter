@@ -92,8 +92,7 @@ public class OrdersControllerTest {
 				final long id=1L;
 				final Orders created = new Orders(customerID, itemID);
 
-				Mockito.when(utils.getLong()).thenReturn(customerID,itemID);
-				Mockito.when(dao.create(created)).thenReturn(created);
+				
 				Mockito.when(dao.read(id)).thenReturn(created);
 				
 				assertEquals(created, dao.read(id));}

@@ -95,9 +95,7 @@ public class ItemsControllerTest {
 			final Long id=1L;
 			final Items created = new Items(name, value);
 
-			Mockito.when(utils.getString()).thenReturn(name);
-			Mockito.when(utils.getDouble()).thenReturn(value);
-			Mockito.when(dao.create(created)).thenReturn(created);
+			
 			Mockito.when(dao.read(id)).thenReturn(created);
 			
 			assertEquals(created, dao.read(id));
