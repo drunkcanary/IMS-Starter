@@ -1,0 +1,29 @@
+1)Unsure of what to do
+Having just entered the project and looking at the codebase, there is a possibility I could feel overwhelmed by all the code and any new techniques I haven't used yet that I might initially be unsure what to do.
+Probability-High
+Severity-Major
+Mitigation-Analyze the initial codebase, find any patterns between the classes to make sense of the whole thing and make your way towards the end from there
+
+2)Falling asleep
+Working as long as I have on this project, on and off hours, there was a possibilty that I could've fallen asleep from exhaustion.
+Probability-Moderate
+Severity-Moderate
+Mitigation-Get some sleep
+
+3)Getting stuck testing
+Being new to tests and really not liking the their implementation in Java, I can safely say that tests are not my thing and there were definitely some problems with both testing and debugging. These did bite a significant portion of my time working on the codebase, time I could've used on other peripheral objectives.
+Probability-High
+Severity-High
+Mitigation-Follow and examine the testing frameworks already laid out for you, so you can get an idea of what you are meant to be doing
+
+4)Procastination
+Knowing me, I can be very laid back sometimes when it comes to work like this. I think "It's OK, I can just do it tommorow"
+Probability-Moderate
+Severity-Moderate
+Mitigation-Do today what could be done tommorow. Don't waste any time, because the sooner you get this done, the better you'll feel.
+
+5)Waiting on other people's advice and help
+Whenever stuck, the easiest solution is to immediately reach out to trainers and other people in the hopes of getting an answer. However this way isn't always the best way, as there is most likely a queue of people already doing the exact same thing. Waiting is a time waster.
+Probability-High
+Severity-High
+Mitigation-Don't rely on others too much. From now on, do whatever you can by yourself, scour the Internet if you have to for answers or hints. Only on the hardest problems that have stumped you so far, should you seek assistance.
